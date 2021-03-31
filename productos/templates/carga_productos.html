@@ -1,0 +1,15 @@
+{% extends 'base_productos.html' %}
+{% load static %}
+{% block body %}
+<!-- Me equivique, esto es la lista>
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            {% for product in products %}
+            <li class="list-group-item">{{ product.product_name }}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+-->
+{% endblock body %}

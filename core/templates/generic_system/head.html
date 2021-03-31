@@ -1,0 +1,12 @@
+{% load static %}
+{% block head %}
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link type="text/css" href="{% static 'css/footer.css' %}">
+    {% block css_custom %}{% endblock css_custom %}
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>CRUD</title>
+</head>
+{% endblock head %}

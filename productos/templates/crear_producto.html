@@ -1,0 +1,44 @@
+{% extends 'base_productos.html' %}
+{% load static %}
+{% block body %}
+<div class="container p-3">
+    <div class="row">
+        <div class="col-md-10">
+          {% block titulo_pagina %}<h3>Crear Producto</h3>{% endblock titulo_pagina %}
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 offset-md-2 col-sm-12">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="nameproduct" class="form-label">Nombre del producto</label>
+                <input type="text" class="form-control" id="nameproduct" name="{{form.product_name.name}}" value="{{form.product_name.value}}">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripcion</label>
+                <textarea type="text" class="form-control" id="description" name="{{form.product_description.name}}" >{{form.product_description.value}}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="{{form.stock_product.name}}" value="{{form.stock_product.value}}">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="price" name="{{form.product_price.name}}" value="{{form.product_price.value}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Proveedor</label>
+                {{form.id_supplier}}
+            </div>
+
+            <button class="btn btn-primary" type="submit">{{boton}}</button>
+            <a class="btn btn-danger" href="{% url 'productos:lista' %}">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock body %}

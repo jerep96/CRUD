@@ -1,0 +1,49 @@
+{% extends 'base_productos.html' %}
+{% load static %}
+{% block body %}
+<div class="container p-3">
+    <div class="row">
+    <div class="col-md-10">
+      {% block titulo_pagina %}<h3>Listado de Productos</h3>{% endblock titulo_pagina %}
+    </div>
+    <div class="col-md-2">
+        <a href="{% url 'productos:crear' %}" type="button" class="btn btn-outline-success"><i class="bi bi-plus-circle"></i></a>
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-8 offset-md-2 col-sm-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre del Producto</th>
+                    <th>Descripcion</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th>Opcion</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product }}</td>
+                    <td class="">{{ product.product_name }}</td>
+                    <td class="">{{ product.product_description }}</td>
+                    <td class="">{{ product.stock_product }}</td>
+                    <td class="">{{ product.product_price }}</td>
+                    <td>
+                        <a href="{% url 'productos:editar' id_product=product.id %}"><i class="bi bi-pencil"></i></a>
+                        <a href="{% url 'productos:eliminar' id_product=product.id %}" class="link-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if eliminado %}
+        <h4>Eliminado</h4>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock body %}

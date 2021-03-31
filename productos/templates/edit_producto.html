@@ -1,0 +1,13 @@
+{% extends 'base_productos.html' %}
+{% load static %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+</form>
+{% for product in products %}
+<td class="">{{ product.id }}</td>
+{% endfor %}
+
+{% endblock body %}
